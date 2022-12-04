@@ -4,8 +4,8 @@
 *.iml
 .idea/
 .idea/*
-.out/
-.out/*
+out/
+out/*
 target/
 target/*
 
