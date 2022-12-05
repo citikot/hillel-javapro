@@ -3,6 +3,8 @@ package homework3.part2;
 public class Animal {
     public static int animalsCounter;
 
+    public String name;
+
     public Animal() {
         animalsCounter += 1;
     }
@@ -15,4 +17,24 @@ public class Animal {
         System.out.println(name + " пробежал " + distance + " м");
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Animal animal)) return false;
+
+        return getName().equals(animal.getName());
+    }
+
+    @Override
+    public int hashCode() {
+        return getName().hashCode();
+    }
 }

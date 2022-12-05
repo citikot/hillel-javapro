@@ -3,7 +3,6 @@ package homework3.part2;
 public class Cat extends Animal{
 
     public static int catsCounter;
-    private String name;
     private final int CAT_RUN_LIMIT = 200;
 
     public Cat(){
@@ -14,14 +13,6 @@ public class Cat extends Animal{
     public Cat(String name){
         catsCounter += 1;
         setName(name);
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public int getCatsCounter() {
@@ -36,16 +27,4 @@ public class Cat extends Animal{
         }
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Cat cat)) return false;
-
-        return getName().equals(cat.getName());
-    }
-
-    @Override
-    public int hashCode() {
-        return getName().hashCode();
-    }
 }
