@@ -3,7 +3,6 @@ package homework3.part2;
 public class Dog extends Animal {
 
     public static int dogsCounter;
-    private String name;
     private final int DOG_RUN_LIMIT = 500;
     private final int DOG_SWIM_LIMIT = 10;
 
@@ -15,14 +14,6 @@ public class Dog extends Animal {
     public Dog(String name){
         dogsCounter += 1;
         setName(name);
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public int getDogsCounter() {
@@ -45,16 +36,4 @@ public class Dog extends Animal {
         }
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Dog dog)) return false;
-
-        return getName().equals(dog.getName());
-    }
-
-    @Override
-    public int hashCode() {
-        return getName().hashCode();
-    }
 }

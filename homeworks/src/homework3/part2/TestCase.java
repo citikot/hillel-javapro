@@ -1,6 +1,6 @@
 package homework3.part2;
 
-public class TestCases {
+public class TestCase {
     public static void main(String[] args) {
         Animal an1 = new Animal();
         System.out.println("Животных: " + an1.getAnimalsCounter());
