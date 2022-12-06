@@ -1,5 +1,5 @@
 /.idea/
-/.out/
+/out/
 /*.iml
 *.iml
 .idea/
@@ -8,4 +8,5 @@ out/
 out/*
 target/
 target/*
+
 
