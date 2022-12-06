@@ -22,7 +22,7 @@ public class Dog extends Animal {
 
     public void run(int distance) {
         if (distance <= DOG_RUN_LIMIT) {
-            super.run(getName(), distance);
+            super.run(distance);
         } else {
             System.out.println(getName() + " сдох.");
         }
