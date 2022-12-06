@@ -13,8 +13,8 @@ public class Animal {
         return animalsCounter;
     }
 
-    public void run(String name, int distance){
-        System.out.println(name + " пробежал " + distance + " м");
+    public void run(int distance){
+        System.out.println(getName() + " пробежал " + distance + " м");
     }
 
     public void setName(String name) {
