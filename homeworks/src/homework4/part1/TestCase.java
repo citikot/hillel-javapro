@@ -11,7 +11,7 @@ public class TestCase {
                 new Circle(8)
         };
         double totalSquare = calculateTotalSquare(arr);
-        System.out.println(String.format("%.2f", totalSquare));
+        System.out.printf("%.2f%n", totalSquare);
     }
 
     private static double calculateTotalSquare(Figure[] arr){
