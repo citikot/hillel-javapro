@@ -1,4 +1,4 @@
-package homework3.part2;
+package homework3.homework5;
 
 public class Cat extends Animal{
 

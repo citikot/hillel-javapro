@@ -8,12 +8,15 @@ public class Car {
         startFuelSystem();
     }
 
-    private void startElectricity(){
+    private void startElectricity() {
 
     }
-    private void startCommand(){
+
+    private void startCommand() {
 
     }
-    private void startFuelSystem(){
+
+    private void startFuelSystem() {
 
     }
+}
