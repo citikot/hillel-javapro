@@ -5,12 +5,13 @@ public class TestCase {
         Figure[] arr = {
                 new Circle(),
                 new Square(),
-                new Square(14),
+                new Square(16),
                 new Triangle(),
-                new Triangle(10,20,30),
+                new Triangle(15,20,35),
                 new Circle(8)
         };
         double totalSquare = calculateTotalSquare(arr);
+        System.out.print("Total square of figures given equals to: ");
         System.out.printf("%.2f%n", totalSquare);
     }
 
