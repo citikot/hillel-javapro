@@ -6,7 +6,7 @@ public class Wall implements Obstacle{
 
     private int distance;
 
-    private String name = "cтена";
+    private String name = "wall";
 
     public Wall(int height, int distance){
         setWallHeight(height);

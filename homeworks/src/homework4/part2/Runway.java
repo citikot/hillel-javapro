@@ -4,7 +4,7 @@ public class Runway implements Obstacle {
 
     private int runwayLength;
 
-    private String name = "беговая дорожка";
+    private String name = "runway";
 
     public Runway(int length) {
         setRunwayLength(length);
