@@ -1,31 +1,20 @@
 package homework4.part1;
 
-public class Triangle extends Figure {
+public class Triangle implements Figure {
     private int side1;
     private int side2;
     private int side3;
 
-    public Triangle(){
+    public Triangle() {
         setSide1(DEFAULT_SIDE);
         setSide2(DEFAULT_SIDE);
         setSide3(DEFAULT_SIDE);
     }
+
     public Triangle(int side1, int side2, int side3) {
-        if (side1 > 0) {
-            setSide1(side1);
-        } else {
-            setSide1(DEFAULT_SIDE);
-        }
-        if (side2 > 0) {
-            setSide2(side2);
-        } else {
-            setSide2(DEFAULT_SIDE);
-        }
-        if (side3 > 0) {
-            setSide3(side3);
-        } else {
-            setSide3(DEFAULT_SIDE);
-        }
+        setSide1(replaceNegativeByDefault(side1));
+        setSide2(replaceNegativeByDefault(side2));
+        setSide3(replaceNegativeByDefault(side3));
     }
 
     public int getSide1() {
@@ -52,7 +41,7 @@ public class Triangle extends Figure {
         this.side3 = side3;
     }
 
-    public double getArea() {
+    public double calculateArea() {
         // Gerone formula
         double halfPerimeter = (double) (getSide1() + getSide2() + getSide3()) / 2;
         double diff1 = halfPerimeter - getSide1();

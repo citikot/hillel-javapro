@@ -1,6 +1,6 @@
 package homework4.part1;
 
-public class Square extends Figure {
+public class Square implements Figure {
 
     private int length;
 
@@ -8,15 +8,11 @@ public class Square extends Figure {
         setLength(DEFAULT_SIDE);
     }
     public Square(int length) {
-        if (length > 0) {
-            setLength(length);
-        } else {
-            setLength(DEFAULT_SIDE);
-        }
+        setLength(replaceNegativeByDefault(length));
     }
 
-    public double getArea() {
-        return getLength() * getLength();
+    public double calculateArea() {
+        return (double) length * length;
     }
 
     public int getLength() {

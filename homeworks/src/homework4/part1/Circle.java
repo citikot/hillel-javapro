@@ -1,6 +1,6 @@
 package homework4.part1;
 
-public class Circle extends Figure {
+public class Circle implements Figure {
 
     private int radius;
 
@@ -9,14 +9,10 @@ public class Circle extends Figure {
     }
 
     public Circle(int radius){
-        if (radius > 0) {
-            setRadius(radius);
-        } else {
-            setRadius(DEFAULT_SIDE);
-        }
+        setRadius(replaceNegativeByDefault(radius));
     }
 
-    public double getArea() {
+    public double calculateArea() {
         return Math.PI * Math.pow(getRadius(), 2);
     }
 
