@@ -18,7 +18,7 @@ public class TestCase {
     private static double calculateTotalSquare(Figure[] arr){
         double totalSquare = 0;
         for (Figure figure : arr) {
-            totalSquare += figure.getArea();
+            totalSquare += figure.calculateArea();
         }
         return totalSquare;
     }
