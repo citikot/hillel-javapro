@@ -12,11 +12,9 @@ public class ListsManipulations {
         System.out.println(toList(integerArray));
         System.out.println(findUnique(integerList));
         calcOccurance(stringList);
-
-        for(WordCounter elem : findOccurrence(stringList)) {
-            System.out.println(elem);
-        }
+        System.out.println(findOccurrence(stringList));
     }
+
 
     public static int countOccurance(List<String> stringList, String stringToCount) {
         int counter = 0;
@@ -49,23 +47,23 @@ public class ListsManipulations {
         }
 
         // output as required in task 4 **
-        for(String elem : result.keySet()) {
+        for (String elem : result.keySet()) {
             System.out.println(elem + ": " + result.get(elem));
         }
     }
 
     public static List<WordCounter> findOccurrence(List<String> stringList) {
-        Map<String, Integer> result = new HashMap<>();
+        Map<String, Integer> mappedDistribution = new HashMap<>();
         for (String elem : stringList) {
-            if (result.putIfAbsent(elem, 1) != null) {
-                result.put(elem, result.get(elem) + 1);
+            if (mappedDistribution.putIfAbsent(elem, 1) != null) {
+                mappedDistribution.put(elem, mappedDistribution.get(elem) + 1);
             }
         }
 
         // output as required in task 4 ***
         List<WordCounter> outputList = new ArrayList<>();
-        for(String elem : result.keySet()) {
-            outputList.add(new WordCounter(elem, result.get(elem)));
+        for (String elem : mappedDistribution.keySet()) {
+            outputList.add(new WordCounter(elem, mappedDistribution.get(elem)));
         }
         return outputList;
     }
