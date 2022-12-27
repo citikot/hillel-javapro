@@ -11,8 +11,8 @@ public class WordCounter {
 
     @Override
     public String toString() {
-        return "{name: " + word +
-                " , occurrence: " + occurrence +
+        return "{name: \"" + word +
+                "\", occurrence: " + occurrence +
                 "}";
     }
 }
