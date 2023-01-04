@@ -24,13 +24,14 @@ public class NavigatorRunner {
         fileStorage.add("/dir3/dir1/", testFile7);
         fileStorage.add("/dir4/dir1/", testFile8);
 
-        System.out.println(fileStorage.toString());
+        System.out.println(fileStorage);
         System.out.println(fileStorage.find("/dir3/dir1/"));
         System.out.println(fileStorage.find("/dir10/dir1/"));
         System.out.println(fileStorage.filterBySize(145));
         System.out.println(fileStorage.filterBySize(130));
+        System.out.println(fileStorage.sortBySize());
         System.out.println(fileStorage.remove("adsdf"));
         System.out.println(fileStorage.remove("/dir4/dir1/"));
-        System.out.println(fileStorage.toString());
+        System.out.println(fileStorage);
     }
 }
