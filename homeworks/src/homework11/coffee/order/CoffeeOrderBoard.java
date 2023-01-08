@@ -1,12 +1,11 @@
 package homework11.coffee.order;
 
-import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class CoffeeOrderBoard {
     private Queue<Order> orderBoard;
-    private static int counter = 1;
+    private int counter = 1;
 
     public CoffeeOrderBoard() {
         orderBoard = new PriorityQueue<>(5, (o1, o2) -> o1.getOrderNumber() - o2.getOrderNumber());
@@ -26,7 +25,7 @@ public class CoffeeOrderBoard {
         for (Order order : orderBoard) {
             if (order.getOrderNumber() == number){
                 orderBoard.remove(order);
-                break;
+                return;
             }
         }
     }
