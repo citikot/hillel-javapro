@@ -1,7 +1,0 @@
-Jan 10, 2023 @ 21:09:38 INFO DEBUG  messaga: Mes5
-Jan 10, 2023 @ 21:09:38 INFO DEBUG  messaga: Mess6
-Jan 10, 2023 @ 21:11:21 INFO  messaga: Mes5
-Jan 10, 2023 @ 21:11:21 INFO  messaga: Mess6
-Jan 10, 2023 @ 21:11:23 INFO  messaga: Mes5
-Jan 10, 2023 @ 21:11:23 INFO  messaga: Mess6
-Jan 10, 2023 @ 21:11:25 INFO  messaga: Mes5
