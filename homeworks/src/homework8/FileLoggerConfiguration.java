@@ -11,10 +11,10 @@ public class FileLoggerConfiguration {
     максимальний розмір файлу (в байтах),
     формат для запису в файл.
     */
-    String fileName;
-    LoggingLevel loggingLevel;
-    int maxFileSize;
-    Charset fileFormat;
+    private String fileName;
+    private LoggingLevel loggingLevel;
+    private int maxFileSize;
+    private Charset fileFormat;
 
     public FileLoggerConfiguration(String fileName, LoggingLevel loggingLevel, int maxFileSize, Charset fileFormat) {
         this.fileName = fileName;
