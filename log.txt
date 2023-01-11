@@ -1,6 +1,0 @@
-Jan 11, 2023 @ 15:40:52 INFO  message: Mes5
-Jan 11, 2023 @ 15:40:52 INFO  message: Mess6
-Jan 11, 2023 @ 15:41:02 INFO  message: Mes5
-Jan 11, 2023 @ 15:41:02 INFO  message: Mess6
-Jan 11, 2023 @ 15:41:04 INFO  message: Mes5
-Jan 11, 2023 @ 15:41:04 INFO  message: Mess6
