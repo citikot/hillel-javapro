@@ -25,18 +25,18 @@ public class Box<T extends Fruit> {
     }
 
     public float getWeight() {
-        return getAmount() * kind.getFruitWeight();
+        return getAmount() * kind.getWeight();
     }
 
     public boolean compare(Box box){
-        if ((kind.getClass().toString().equals(box.kind.getClass().toString())) || (getWeight() != box.getWeight())) {
+        if ((getWeight() != box.getWeight())) {
             return false;
         }
         return true;
     }
 
     public boolean merge(Box box){
-        if ((kind.getClass().toString().equals(box.kind.getClass().toString()))) {
+        if (kind.getClass().toString().equals(box.kind.getClass().toString())) {
             this.addMany(box.getAmount());
             box.setAmount(0);
             return true;

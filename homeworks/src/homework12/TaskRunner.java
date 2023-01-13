@@ -5,17 +5,17 @@ public class TaskRunner {
         Integer[] arr1 = {1,2,3,4,5};
         String[] arr2 = {"a","b","c","d","e"};
         Double[] arr3 = {1.2,3.4,5.6,7.8,9.1};
-        ArrayToList modifier = new ArrayToList();
+        Converter modifier = new Converter();
         System.out.println(modifier.toList(arr1));
         System.out.println(modifier.toList(arr2));
         System.out.println(modifier.toList(arr3));
 
-        Box<Apple> box1 = new Box<>(new Apple(1.0F));
-        Box<Apple> box2 = new Box<>(new Apple(1.0F));
-        Box<Apple> box3 = new Box<>(new Apple(1.0F));
-        Box<Orange> box4 = new Box<>(new Orange(1.5F));
-        Box<Orange> box5 = new Box<>(new Orange(1.5F));
-        Box<Orange> box6 = new Box<>(new Orange(1.5F));
+        Box<Apple> box1 = new Box<>(new Apple());
+        Box<Apple> box2 = new Box<>(new Apple());
+        Box<Apple> box3 = new Box<>(new Apple());
+        Box<Orange> box4 = new Box<>(new Orange());
+        Box<Orange> box5 = new Box<>(new Orange());
+        Box<Orange> box6 = new Box<>(new Orange());
         box1.addOne();
         System.out.println(box1.getAmount());
         box1.addMany(14);
