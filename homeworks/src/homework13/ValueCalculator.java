@@ -2,8 +2,8 @@ package homework13;
 
 public class ValueCalculator {
 
-    private int WORKING_ARRAY_SIZE = 1000000;
-    private int HALF_OF_WORKING_ARRAY_SIZE = WORKING_ARRAY_SIZE / 2;
+    private static final int WORKING_ARRAY_SIZE = 1000000;
+    private static final int HALF_OF_WORKING_ARRAY_SIZE = WORKING_ARRAY_SIZE / 2;
     private double[] workingArray = new double[WORKING_ARRAY_SIZE];
     private double[] workingArrayHalf1 = new double[HALF_OF_WORKING_ARRAY_SIZE];
     private double[] workingArrayHalf2 = new double[HALF_OF_WORKING_ARRAY_SIZE];
@@ -39,8 +39,8 @@ public class ValueCalculator {
 
     private void processWorkingArraysBySingleThread() {
         for (int i = 0; i < HALF_OF_WORKING_ARRAY_SIZE; i++) {
-            workingArrayHalf1[i] = (double) (workingArrayHalf1[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
-            workingArrayHalf2[i] = (double) (workingArrayHalf2[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
+            workingArrayHalf1[i] = calculateNewData(workingArrayHalf1[i], i);
+            workingArrayHalf2[i] = calculateNewData(workingArrayHalf2[i], i);
         }
         concatArrays();
     }
@@ -67,5 +67,9 @@ public class ValueCalculator {
     private void concatArrays() {
         System.arraycopy(workingArrayHalf1, 0, workingArray, 0, HALF_OF_WORKING_ARRAY_SIZE);
         System.arraycopy(workingArrayHalf2, 0, workingArray, HALF_OF_WORKING_ARRAY_SIZE, HALF_OF_WORKING_ARRAY_SIZE);
+    }
+
+    private double calculateNewData (double a, int i){
+        return (double) (a * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
     }
 }
