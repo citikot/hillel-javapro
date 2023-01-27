@@ -19,11 +19,12 @@ public class PetrolStation implements Runnable {
         int timeSpent = randomizer.nextInt(7000) + 3000;
         semaphore.acquire();
         amount = amount - refuel;
-        semaphore.release();
         if (amount <= 0) {
+            semaphore.release();
             isRefuled = false;
             System.out.println(String.format("Fuel on petrol station has gone at dispenser %s.", Thread.currentThread().getName()));
         } else {
+            semaphore.release();
             System.out.println(String.format("Dispenser %s was working. The rest of fuel after refuel is %f. Requested refuel was %f. Time spent is %d",
                     Thread.currentThread().getName(), amount, refuel, timeSpent / 1000));
             Thread.sleep(timeSpent);
