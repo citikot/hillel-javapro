@@ -2,15 +2,11 @@ package homework14.part1;
 
 import java.util.Random;
 import java.util.concurrent.Semaphore;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
 public class PetrolStation implements Runnable {
 
     private volatile double amount;
-    private final Lock lock = new ReentrantLock();
     Random randomizer = new Random();
-
     Semaphore semaphore;
 
     public PetrolStation(double amount, Semaphore dispensers) {
