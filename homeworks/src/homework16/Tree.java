@@ -6,12 +6,14 @@ import java.util.Random;
 
 public class Tree {
 
-    private Random random = new Random();
-    private Node root = new Node(random.nextInt(100));
+    private Random random;
+    private Node root;
     private int level;
 
     public Tree(int level) {
         this.level = level;
+        this.random = new Random();
+        this.root = new Node(random.nextInt(100));
         generate();
     }
 
@@ -24,15 +26,15 @@ public class Tree {
         }
     }
 
-    private void add(Node currentNode, Node newNode) {
-        if ((newNode.getValue() > currentNode.getValue()) && currentNode.getRightNode() == null) {
+    public void add(Node currentNode, Node newNode) {
+        if (currentNode.getRightNode() == null && (newNode.getValue() > currentNode.getValue())) {
             currentNode.setRightNode(newNode);
-        } else if ((newNode.getValue() < currentNode.getValue()) && currentNode.getLeftNode() == null) {
+        } else if (currentNode.getLeftNode() == null && (newNode.getValue() < currentNode.getValue())) {
             currentNode.setLeftNode(newNode);
-        } else if ((newNode.getValue() > currentNode.getValue()) && currentNode.getRightNode() != null) {
+        } else if (currentNode.getRightNode() != null && (newNode.getValue() > currentNode.getValue())) {
             currentNode = currentNode.getRightNode();
             add(currentNode, newNode);
-        } else if ((newNode.getValue() < currentNode.getValue()) && currentNode.getLeftNode() != null) {
+        } else if (currentNode.getLeftNode() != null && (newNode.getValue() < currentNode.getValue())) {
             currentNode = currentNode.getLeftNode();
             add(currentNode, newNode);
         }
