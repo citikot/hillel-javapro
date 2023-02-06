@@ -3,7 +3,7 @@ package homework17;
 import java.time.LocalDate;
 import java.util.List;
 
-public class PriduceServiceRunner {
+public class ProductServiceRunner {
     public static void main(String[] args){
         List<Product> listOfProducts = List.of(
                 new Product(1, "Book", 60, false, LocalDate.of(2019, 11, 1)),
