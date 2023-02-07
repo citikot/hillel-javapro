@@ -7,11 +7,11 @@ import java.util.Objects;
 import java.util.OptionalDouble;
 import java.util.stream.Collectors;
 
-public class ProductService {
+public class ProductUtils {
 
     public static List<Product> task12(List<Product> listOfProducts) {
         return listOfProducts.stream()
-                .filter(elem -> Objects.equals(elem.getType(), "Book"))
+                .filter(elem -> "Book".equals(elem.getType()))
                 .filter(elem -> elem.getPrice() > 250)
                 .collect(Collectors.toList());
     }
@@ -20,11 +20,9 @@ public class ProductService {
         List<Product> books = listOfProducts.stream()
                 .filter(elem -> Objects.equals(elem.getType(), "Book"))
                 .filter(Product::isDiscount)
+                .map(elem -> new Product(elem.getId(), elem.getType(), elem.getPrice() * 0.9, elem.isDiscount(),elem.getCreateDate() ))
                 .collect(Collectors.toList());
 
-        for (int i = 0; i < books.size(); i++) {
-            books.get(i).setPrice(books.get(i).getPrice() * 0.9);
-        }
         return books;
     }
 

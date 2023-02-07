@@ -3,7 +3,7 @@ package homework17;
 import java.time.LocalDate;
 import java.util.List;
 
-public class ProductServiceRunner {
+public class ProductProcessor {
     public static void main(String[] args){
         List<Product> listOfProducts = List.of(
                 new Product(1, "Book", 60, false, LocalDate.of(2019, 11, 1)),
@@ -27,10 +27,10 @@ public class ProductServiceRunner {
                 new Product(19, "Toy", 1000, true, LocalDate.of(2019, 12, 5))
         );
 
-        System.out.println(ProductService.task12(listOfProducts));
-        System.out.println(ProductService.task22(listOfProducts));
-        System.out.println(ProductService.task42(listOfProducts));
-        System.out.println(ProductService.task32(listOfProducts, "abc"));
-        System.out.println(ProductService.task52(listOfProducts, "Book", 75.0, LocalDate.of(2019, 12, 30)));
+        System.out.println(ProductUtils.task12(listOfProducts));
+        System.out.println(ProductUtils.task22(listOfProducts));
+        System.out.println(ProductUtils.task42(listOfProducts));
+        System.out.println(ProductUtils.task32(listOfProducts, "abc"));
+        System.out.println(ProductUtils.task52(listOfProducts, "Book", 75.0, LocalDate.of(2019, 12, 30)));
     }
 }
