@@ -1,6 +1,6 @@
 package homework17;
 
-public class CategoryException extends Throwable {
+public class CategoryException extends Exception {
 
     private String message;
     public CategoryException (String category){
