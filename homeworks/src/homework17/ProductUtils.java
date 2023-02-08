@@ -18,7 +18,7 @@ public class ProductUtils {
 
     public static List<Product> task22(List<Product> listOfProducts) {
         List<Product> books = listOfProducts.stream()
-                .filter(elem -> Objects.equals(elem.getType(), "Book"))
+                .filter(elem -> "Book".equals(elem.getType()))
                 .filter(Product::isDiscount)
                 .map(elem -> new Product(elem.getId(), elem.getType(), elem.getPrice() * 0.9, elem.isDiscount(),elem.getCreateDate() ))
                 .collect(Collectors.toList());
@@ -28,7 +28,7 @@ public class ProductUtils {
 
     public static OptionalDouble task32(List<Product> listOfProducts, String category) {
         OptionalDouble min = listOfProducts.stream()
-                .filter(elem -> Objects.equals(elem.getType(), category))
+                .filter(elem -> category.equals(elem.getType()))
                 .mapToDouble(Product::getPrice)
                 .min();
         try {
@@ -43,8 +43,8 @@ public class ProductUtils {
 
     public static List<Product> task42(List<Product> listOfProducts) {
         return listOfProducts.stream()
-                .sorted(Comparator.comparing(Product::getCreateDate))
-                .skip(listOfProducts.size() - 3)
+                .sorted(Comparator.comparing(Product::getCreateDate).reversed())
+                .limit(3)
                 .collect(Collectors.toList());
     }
 

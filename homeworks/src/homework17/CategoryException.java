@@ -1,14 +1,18 @@
 package homework17;
 
-public class CategoryException extends Exception {
+import java.util.function.Supplier;
+
+public class CategoryException extends RuntimeException {
 
     private String message;
     public CategoryException (String category){
         this.message = "The Product from category " + category + " is not found\n";
     }
 
+
     @Override
-    public String getMessage (){
+    public String getMessage(){
         return message;
     }
+
 }
