@@ -30,7 +30,7 @@ public class ProductProcessor {
         System.out.println(ProductUtils.task12(listOfProducts));
         System.out.println(ProductUtils.task22(listOfProducts));
         System.out.println(ProductUtils.task42(listOfProducts));
-        System.out.println(ProductUtils.task32(listOfProducts, "abc"));
+        System.out.println(ProductUtils.task32(listOfProducts, "Toy"));
         System.out.println(ProductUtils.task52(listOfProducts, "Book", 75.0, LocalDate.of(2019, 12, 30)));
     }
 }
