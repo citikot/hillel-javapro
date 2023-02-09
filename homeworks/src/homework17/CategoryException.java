@@ -1,7 +1,5 @@
 package homework17;
 
-import java.util.function.Supplier;
-
 public class CategoryException extends RuntimeException {
 
     private String message;
