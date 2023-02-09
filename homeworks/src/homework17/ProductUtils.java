@@ -1,13 +1,13 @@
 package homework17;
 
 import java.time.LocalDate;
-import java.util.Comparator;
-import java.util.List;
-import java.util.OptionalDouble;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class ProductUtils {
 
-    private ProductUtils(){}
+    private ProductUtils() {
+    }
 
     public static List<Product> task12(List<Product> listOfProducts) {
         return listOfProducts.stream()
@@ -20,7 +20,7 @@ public class ProductUtils {
         return listOfProducts.stream()
                 .filter(elem -> "Book".equals(elem.getType()))
                 .filter(Product::isDiscount)
-                .map(elem -> new Product(elem.getId(), elem.getType(), elem.getPrice() * 0.9, elem.isDiscount(),elem.getCreateDate() ))
+                .map(elem -> new Product(elem.getId(), elem.getType(), elem.getPrice() * 0.9, elem.isDiscount(), elem.getCreateDate()))
                 .toList();
 
     }
@@ -49,4 +49,11 @@ public class ProductUtils {
                 .mapToDouble(Product::getPrice)
                 .sum();
     }
+
+    public static Map<String, List<Product>> task62(List<Product> listOfProducts) {
+        Map<String, List<Product>> sortedDict = listOfProducts.stream()
+                .collect(Collectors.groupingBy(Product::getType));
+        return sortedDict;
+    }
 }
+
