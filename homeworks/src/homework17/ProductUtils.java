@@ -51,9 +51,8 @@ public class ProductUtils {
     }
 
     public static Map<String, List<Product>> task62(List<Product> listOfProducts) {
-        Map<String, List<Product>> sortedDict = listOfProducts.stream()
+        return listOfProducts.stream()
                 .collect(Collectors.groupingBy(Product::getType));
-        return sortedDict;
     }
 }
 
