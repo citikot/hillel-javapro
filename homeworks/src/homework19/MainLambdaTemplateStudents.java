@@ -5,18 +5,9 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import static homework19.FruitType.APPLE;
-import static homework19.FruitType.ORANGE;
-import static homework19.FruitType.PEAR;
-import static homework19.FruitType.STRAWBERRY;
-import static homework19.Vitamin.A;
-import static homework19.Vitamin.B;
-import static homework19.Vitamin.B1;
-import static homework19.Vitamin.B2;
-import static homework19.Vitamin.C;
-import static homework19.Vitamin.D;
-import static homework19.Vitamin.E;
-import static homework19.Vitamin.P;
+import static homework19.FruitType.*;
+import static homework19.Vitamin.*;
+
 
 public class MainLambdaTemplateStudents {
     public static void main(String[] args) {
