@@ -1,7 +1,5 @@
 package homework19;
 
-import homework17.Product;
-
 import java.time.LocalDate;
 import java.util.*;
 import java.util.function.Function;
