@@ -1,6 +1,6 @@
 package homework20.factory;
 
-public class Cabinet implements Furniture{
+public class Cabinet implements Furniture {
 
     @Override
     public void produced() {

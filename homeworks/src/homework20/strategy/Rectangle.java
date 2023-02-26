@@ -4,7 +4,7 @@ public class Rectangle extends Figure {
 
     private double side1, side2;
     public Rectangle(double side1, double side2) {
-        super(new RectangleAreaCaluclation());
+        super(new RectangleAreaCalculation());
         this.side1 = side1;
         this.side2 = side2;
     }

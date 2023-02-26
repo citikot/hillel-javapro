@@ -1,7 +1,7 @@
 package homework20.factory;
 
 public class FurnitureFactoryRunner {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IllegalAccessException {
         System.out.println("Factory Demo");
         FurnitureFactory factory = new FurnitureFactory();
 

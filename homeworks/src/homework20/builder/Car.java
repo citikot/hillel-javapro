@@ -19,12 +19,12 @@ public class Car {
 
     }
 
-    public static Builder builder(){
+    public static Builder builder() {
         return new Builder();
     }
 
 
-    public static final class Builder{
+    public static final class Builder {
         private String brand;
         private String model;
         private Frame frame;
@@ -32,39 +32,40 @@ public class Car {
         private Gearbox gearbox;
         private Drive drive;
 
-        private Builder(){}
+        private Builder() {
+        }
 
-        public Builder addBrand(String brand){
+        public Builder addBrand(String brand) {
             this.brand = brand;
             return this;
         }
 
-        public Builder addModel(String model){
+        public Builder addModel(String model) {
             this.model = model;
             return this;
         }
 
-        public Builder addFrame(Frame frame){
+        public Builder addFrame(Frame frame) {
             this.frame = frame;
             return this;
         }
 
-        public Builder addEngine(Engine engine){
+        public Builder addEngine(Engine engine) {
             this.engine = engine;
             return this;
         }
 
-        public Builder addGearbox(Gearbox gearbox){
+        public Builder addGearbox(Gearbox gearbox) {
             this.gearbox = gearbox;
             return this;
         }
 
-        public Builder addDrive(Drive drive){
+        public Builder addDrive(Drive drive) {
             this.drive = drive;
             return this;
         }
 
-        public Car build(){
+        public Car build() {
             return new Car(this);
         }
     }
