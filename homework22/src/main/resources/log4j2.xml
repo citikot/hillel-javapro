@@ -23,24 +23,12 @@
 			<DefaultRolloverStrategy max="5" />
 		</RollingFile>
 
-		<SMTP name="EMAIL" 
-			SMTPProtocol="smtps"
-			SMTPHost="smtp.gmail.com" 
-			SMTPPort="465"
-			SMTPUsername=""
-			SMTPPassword=""
-			To=""
-			from=""
-			Subject="Coffee Shop logging">
-		</SMTP>
-
 	</Appenders>
 	<Loggers>
 
 		<AsyncLogger name="error-logger" level="ERROR">
 			<AppenderRef ref="STDOUT" level="INFO" />
 			<AppenderRef ref="PROGRAM-LOGGER-APPENDER" level="INFO" />
-			<AppenderRef ref="EMAIL" />
 		</AsyncLogger>
 
 		<Root level="INFO" includeLocation="true">
