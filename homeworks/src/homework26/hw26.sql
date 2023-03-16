@@ -6,7 +6,7 @@ SELECT * FROM offices WHERE officeCode IN (4,5,6,7);
 SELECT * FROM offices WHERE officeCode >= 4 AND officeCode <=7;
 SELECT * FROM offices order by officeCode LIMIT 3, 4;
 -- Task 5
-SELECT * FROM offices order by city DESC;
+SELECT * FROM offices ORDER BY city DESC;
 
 SELECT * FROM products;
 -- Task 2
