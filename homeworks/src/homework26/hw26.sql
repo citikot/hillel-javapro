@@ -15,10 +15,15 @@ SELECT * FROM products WHERE productName LIKE '1936%';
 SELECT * FROM products WHERE productVendor 
 	IN ("Motor City Art Classics", "Exoto Designs")
     AND productScale LIKE '1:24';
+-- Task 6
+SELECT * FROM products ORDER BY productVendor ASC;
+SELECT * FROM products ORDER BY productVendor;
 
 SELECT * FROM orders;
 -- Task 4
 SELECT * FROM orders WHERE shippedDate IS NULL;
+
+
 
 
 
