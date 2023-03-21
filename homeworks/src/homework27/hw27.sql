@@ -29,20 +29,19 @@ WHERE !(od.status = 'Shipped')
 GROUP BY e.employeeNumber
 ORDER BY orders_non_shipped DESC;
 
--- Task 6-1 Show the best employee (by the count of the Shipped orders)
-SELECT e.employeeNumber, e.lastName, e.firstName, COUNT(od.customerNumber) AS shipped_orders_amount FROM employees e
+-- Task 6 Show the best and worst employees (by the count of the Shipped orders)
+(SELECT e.employeeNumber, e.lastName, e.firstName, COUNT(od.customerNumber) AS shipped_orders_amount FROM employees e
 LEFT JOIN customers c ON e.employeeNumber = c.salesRepEmployeeNumber
 LEFT JOIN orders od ON c.customerNumber = od.customerNumber
 WHERE od.status = 'Shipped'
 GROUP BY e.employeeNumber
 ORDER BY shipped_orders_amount DESC
-LIMIT 1;
-
--- Task 6-2 Show the worst employee (by the count of the Shipped orders)
-SELECT e.employeeNumber, e.lastName, e.firstName, COUNT(od.customerNumber) AS shipped_orders_amount FROM employees e
+LIMIT 1)
+UNION
+(SELECT e.employeeNumber, e.lastName, e.firstName, COUNT(od.customerNumber) AS shipped_orders_amount FROM employees e
 LEFT JOIN customers c ON e.employeeNumber = c.salesRepEmployeeNumber
 LEFT JOIN orders od ON c.customerNumber = od.customerNumber
 WHERE od.status = 'Shipped'
 GROUP BY e.employeeNumber
 ORDER BY shipped_orders_amount
-LIMIT 1;
+LIMIT 1);
