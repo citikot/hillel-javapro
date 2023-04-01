@@ -3,7 +3,7 @@ package homework29;
 import java.sql.SQLException;
 
 /*
-add order to the customer (by id), without details
+add order to the customer (by id)
 update order status and comment
 delete order
 find order by id
