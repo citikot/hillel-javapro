@@ -12,7 +12,7 @@ public interface HomeworkDao {
 
     public void addOrder(Order order) throws SQLException;
 
-    public void updateOrder(int id, String status, String comment) throws SQLException;
+    public void updateOrder(int id, String newOrderStatus, String newOrderComment) throws SQLException;
 
     public void deleteOrder(int id) throws SQLException;
 
