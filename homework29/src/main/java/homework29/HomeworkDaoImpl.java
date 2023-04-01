@@ -26,7 +26,7 @@ public class HomeworkDaoImpl implements HomeworkDao {
             stmt.setString(5,order.getStatus());
             stmt.setString(6,order.getComments());
             stmt.setInt(7,order.getCustomerNumber());
-            stmt.executeUpdate();
+            stmt.execute();
         } finally {
             assert stmt != null;
             stmt.close();
@@ -35,19 +35,25 @@ public class HomeworkDaoImpl implements HomeworkDao {
     }
 
     @Override
-    public void updateOrder(int id, String status, String comment) throws SQLException {
+    public void updateOrder(int id, String newOrderStatus, String newOrderComment) throws SQLException {
         Connection connection = null;
         PreparedStatement stmt = null;
-        ResultSet rs = null;
+        String sql = """
+                UPDATE orders
+                SET status = ?,
+                    comments = ?
+                WHERE
+                    orderNumber = ?;
+                """;
 
         try {
             connection = ConnectToDb.getConnection();
-            stmt = connection.prepareStatement("SELECT * FROM  customers");
-            rs = stmt.executeQuery();
-
-
+            stmt = connection.prepareStatement(sql);
+            stmt.setString(1, newOrderStatus);
+            stmt.setString(2, newOrderComment);
+            stmt.setInt(3, id);
+            stmt.executeUpdate();
         } finally {
-            rs.close();
             stmt.close();
             connection.close();
         }
@@ -58,16 +64,18 @@ public class HomeworkDaoImpl implements HomeworkDao {
     public void deleteOrder(int id) throws SQLException {
         Connection connection = null;
         PreparedStatement stmt = null;
-        ResultSet rs = null;
+        String sql = """
+                DELETE FROM orders
+                WHERE
+                    orderNumber = ?;
+                """;
 
         try {
             connection = ConnectToDb.getConnection();
-            stmt = connection.prepareStatement("SELECT * FROM  customers");
-            rs = stmt.executeQuery();
-
-
+            stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, id);
+            stmt.execute();
         } finally {
-            rs.close();
             stmt.close();
             connection.close();
         }
@@ -76,19 +84,37 @@ public class HomeworkDaoImpl implements HomeworkDao {
 
     @Override
     public Order findOrder(int id) throws SQLException {
+        Order order = new Order();
         Connection connection = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-
+        String sql = """
+                SELECT * FROM orders
+                WHERE
+                    orderNumber = ?;
+                """;
         try {
             connection = ConnectToDb.getConnection();
-            stmt = connection.prepareStatement("SELECT * FROM  customers");
+            stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, id);
             rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                order.setCustomerNumber(rs.getInt("customerNumber"));
+                order.setOrderDate(rs.getDate("orderDate"));
+                order.setRequiredDate(rs.getDate("requiredDate"));
+                order.setShippedDate(rs.getDate("shippedDate"));
+                order.setStatus(rs.getString("status"));
+                order.setComments(rs.getString("comments"));
+                order.setOrderNumber(rs.getInt("orderNumber"));
+            }
+
         } finally {
             rs.close();
             stmt.close();
             connection.close();
         }
-        return null;
+
+        return order;
     }
 }

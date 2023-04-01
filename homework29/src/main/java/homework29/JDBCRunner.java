@@ -1,16 +1,5 @@
 package homework29;
 
-
-/*
-Add CRUD operations for orders. For each you may use orderId
-
-
-update order status and comment
-delete order
-find order by id
-
- */
-
 import javax.swing.plaf.ComponentInputMapUIResource;
 import java.sql.SQLException;
 import java.sql.Date;
@@ -37,6 +26,14 @@ public class JDBCRunner {
         daoManager.addOrder(order1);
         daoManager.addOrder(order2);
         daoManager.addOrder(order3);
+
+        daoManager.updateOrder(10501, "In Process", "Claim settled");
+
+        daoManager.deleteOrder(10501);
+
+        System.out.println(daoManager.findOrder(10500).toString());
+        System.out.println(daoManager.findOrder(10502).toString());
+        System.out.println(daoManager.findOrder(10400).toString());
 
     }
 }

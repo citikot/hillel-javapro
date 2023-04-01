@@ -16,6 +16,7 @@ public class Order {
     private Date requiredDate;
     private Date shippedDate;
 
+    public Order(){};
 
     public Order(int customerNumber, Date orderDate, Date requiredDate, Date shippedDate, String status, String comments){
         this.orderNumber = orderCounter++;
@@ -29,6 +30,10 @@ public class Order {
 
     public int getOrderNumber() {
         return orderNumber;
+    }
+
+    public void setOrderNumber(int orderNumber) {
+        this.orderNumber = orderNumber;
     }
 
     public int getCustomerNumber() {
@@ -95,7 +100,8 @@ public class Order {
     @Override
     public String toString() {
         return "Order{" +
-                "customerNumber=" + customerNumber +
+                "orderNumber=" + orderNumber +
+                ", customerNumber=" + customerNumber +
                 ", status='" + status + '\'' +
                 ", comments='" + comments + '\'' +
                 ", orderDate=" + orderDate +
