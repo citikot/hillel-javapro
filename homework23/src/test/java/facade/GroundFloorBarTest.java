@@ -16,19 +16,19 @@ import static org.mockito.Mockito.when;
 class GroundFloorBarTest {
 
     @Mock
-    FishRestaurant fr;
+    GroundFloorBar bar;
 
     @Spy
     GroundFloorBar barSpy = new GroundFloorBar();
 
     @Test
     public void getCorrectGroundFloorBarMenusTest() {
-        when(fr.getMenus()).thenReturn(List.of("Losos", "Forel"));
-        assertEquals(List.of("Losos", "Forel"), fr.getMenus());
+        when(bar.getVineCard()).thenReturn(Map.of("Bordo", 1980));
+        assertEquals(Map.of("Bordo", 1980), bar.getVineCard());
     }
 
     @Test
-    public void getActualValuesInFishMenusTest() {
+    public void getActualValuesInVineCardTest() {
         Map<String, Integer> expectedValue = Map.of("Proseco", 1965);
         assertEquals(expectedValue, barSpy.getVineCard());
     }
