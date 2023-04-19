@@ -7,7 +7,7 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 
 
-@Path("/orders")
+@Path(value = "/orders")
 public class OrdersResource {
 
     OrderRepository repository = new OrderRepository();
