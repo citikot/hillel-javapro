@@ -1,6 +1,6 @@
 package ua.ithillel.interfaces;
 
-import ua.ithillel.entities.Product;
+import ua.ithillel.beans.Product;
 
 import java.util.List;
 
