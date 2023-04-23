@@ -1,7 +1,10 @@
-package ua.ithillel.entities;
+package ua.ithillel.beans;
+
+import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
+@Component
 public class Product {
     private int id;
     private String name;
