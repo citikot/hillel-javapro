@@ -5,31 +5,41 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Component
-@Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE, proxyMode = ScopedProxyMode.DEFAULT)
-public class Cart{
+public class Cart {
 
-    private final List<Product> cartContent = new ArrayList<>();
+    private int cartId;
+    private int productId;
 
-    public void addProductById(int id, ProductRepository productRepository) {
-        cartContent.add(productRepository.getProductById(id));
+    public Cart() {
     }
 
-    public void deleteProductById(int id, ProductRepository productRepository) {
-        cartContent.remove(productRepository.getProductById(id));
+    public Cart(int cartId, int productId) {
+        this.cartId = cartId;
+        this.productId = productId;
     }
 
-    public List<Product> getCartContent() {
-        return cartContent;
+    public int getCartId() {
+        return cartId;
+    }
+
+    public void setCartId(int cartId) {
+        this.cartId = cartId;
+    }
+
+    public int getProductId() {
+        return productId;
+    }
+
+    public void setProductId(int productId) {
+        this.productId = productId;
     }
 
     @Override
     public String toString() {
         return "Cart{" +
-                "cartContent=" + cartContent +
+                "cartId=" + cartId +
+                ", productId=" + productId +
                 '}';
     }
 }

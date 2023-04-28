@@ -2,86 +2,37 @@ package ua.ithillel;
 
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import ua.ithillel.beans.Cart;
-import ua.ithillel.beans.ProductRepository;
+import ua.ithillel.beans.CartDao;
+import ua.ithillel.beans.Product;
+import ua.ithillel.beans.ProductDao;
+import ua.ithillel.config.AppConfig;
 
-import java.util.ArrayList;
-import java.util.List;;
-import java.util.Scanner;
 
 public class ShoppingCartRunner {
     public static void main(String[] args) {
 
-        ConfigurableApplicationContext appContext = new AnnotationConfigApplicationContext("ua.ithillel");
-        ProductRepository productRepository = appContext.getBean(ProductRepository.class);
-        List<Cart> carts = new ArrayList<>();
+        ConfigurableApplicationContext appContext = new AnnotationConfigApplicationContext(AppConfig.class);
+        ProductDao productDao = appContext.getBean(ProductDao.class);
+        CartDao cartDao = appContext.getBean(CartDao.class);
 
-        processCarts(carts, productRepository, appContext);
-        printCarts(carts);
-    }
+        System.out.println(productDao.getProductList());
+        System.out.println(productDao.getProductById(3));
 
-static void processCarts(List<Cart> carts, ProductRepository productRepository, ConfigurableApplicationContext context) {
-    int id;
-    String inpt;
-    Scanner input = new Scanner(System.in);
+        Product product1 = new Product(20, "Cocoa", 200.45);
+        productDao.addProduct(product1);
+        System.out.println(productDao.getProductById(20));
+        productDao.deleteProductById(20);
+        System.out.println(productDao.getProductById(20));
 
-    while (true) {
-        System.out.print("To continue shopping, enter any symbol, to finish shopping, enter N: ");
-        if (input.hasNext()) {
-            inpt = input.next();
-            if (("N".equals(inpt)) || ("n".equals(inpt))) {
-                break;
-            }
-        }
+        cartDao.createCart(20);
+        cartDao.addProductToCart(20,5);
+        cartDao.addProductToCart(20,12);
+        cartDao.addProductToCart(20,16);
+        System.out.println(cartDao.getProductListForCartId(20));
+        cartDao.deleteProductByIdFromCart(20, 5);
+        System.out.println(cartDao.getProductListForCartId(20));
 
-        Cart workingCart = context.getBean(Cart.class);
 
-        while (true) {
-
-            System.out.println("Available products: " + productRepository.getAllProducts());
-            System.out.print("Please, choose product from 1 to 12 to add the current card: ");
-            if (input.hasNextInt()) {
-                id = input.nextInt();
-                if (id >= 1 && id <= 12) {
-                    workingCart.addProductById(id, productRepository);
-                }
-            }
-
-            while (true) {
-                if (workingCart.getCartContent().isEmpty()) {
-                    System.out.println("You cart is empty.");
-                    break;
-                }
-                System.out.println("You cart consists the following products:");
-                System.out.println(workingCart.getCartContent());
-                System.out.print("To remove some products, enter product id, to continue, enter 0 (zero): ");
-                if (input.hasNextInt()) {
-                    id = input.nextInt();
-                    if (id == 0) {
-                        break;
-                    }
-                    workingCart.deleteProductById(id, productRepository);
-                }
-            }
-
-            System.out.print("To stop making new Cart, press N: ");
-
-            if (input.hasNext()) {
-                inpt = input.next();
-                if (("N".equals(inpt)) || ("n".equals(inpt))) {
-                    break;
-                }
-            }
-        }
-        carts.add(workingCart);
-    }
-}
-
-    static void printCarts(List<Cart> carts) {
-        if (!carts.isEmpty()) {
-            System.out.println("Your total order: ");
-            carts.forEach(System.out::println);
-        }
     }
 }
 
