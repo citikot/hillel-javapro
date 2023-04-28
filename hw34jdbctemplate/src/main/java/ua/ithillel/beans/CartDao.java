@@ -28,7 +28,7 @@ public class CartDao {
     }
 
 
-    public List<List<Product>> getProductListForCartId(int cartId){
+    public List<List<Product>> getCartId(int cartId){
         List<List<Product>> products = new ArrayList<>();
 
         List<Cart> productIdListInCart = jdbcTemplate.query("SELECT * FROM carts WHERE cartId = ?",
@@ -44,5 +44,9 @@ public class CartDao {
 
     public void deleteProductByIdFromCart(int cartId, int productId){
         jdbcTemplate.update("DELETE FROM carts WHERE cartId = ? AND productId = ?", cartId, productId);
+    }
+
+    public void deleteCartById(int cartId) {
+        jdbcTemplate.update("DELETE FROM carts WHERE cartId = ?", cartId);
     }
 }

@@ -24,13 +24,13 @@ public class ShoppingCartRunner {
         productDao.deleteProductById(20);
         System.out.println(productDao.getProductById(20));
 
-        cartDao.createCart(20);
         cartDao.addProductToCart(20,5);
         cartDao.addProductToCart(20,12);
         cartDao.addProductToCart(20,16);
-        System.out.println(cartDao.getProductListForCartId(20));
+        System.out.println(cartDao.getCartId(20));
         cartDao.deleteProductByIdFromCart(20, 5);
-        System.out.println(cartDao.getProductListForCartId(20));
+        System.out.println(cartDao.getCartId(20));
+        cartDao.deleteCartById(20);
 
 
     }
