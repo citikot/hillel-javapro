@@ -1,19 +1,23 @@
-package entity;
+package hw30rest;
 
 public class Product {
-    private static int counter = 1;
+
     private int id;
     private String name;
     private double cost;
 
-    public Product(String name, double cost) {
-        this.id = counter++;
+    public Product(int id, String name, double cost) {
+        this.id = id;
         this.name = name;
         this.cost = cost;
     }
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
