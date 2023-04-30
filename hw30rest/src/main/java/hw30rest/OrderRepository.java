@@ -23,7 +23,7 @@ public class OrderRepository {
 
         Order order1 = new Order(1, "2022-12-04");
         Order order2 = new Order(2, "2022-12-06");
-        Order order3 = new Order(1, "2022-12-09");
+        Order order3 = new Order(3, "2022-12-09");
 
         order1.setProducts(List.of(product1, product2, product5, product11));
         order2.setProducts(List.of(product3, product4, product12, product7));
